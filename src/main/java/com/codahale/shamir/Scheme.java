@@ -1,3 +1,6 @@
+// Implementation of join() was altered by Jacob Zimmerman to put in a check that enough parts were received
+
+
 /*
  * Copyright © 2017 Coda Hale (coda.hale@gmail.com)
  *
@@ -87,16 +90,16 @@ public class Scheme {
    * Joins the given parts to recover the original secret.
    *
    * <p><b>N.B.:</b> There is no way to determine whether or not the returned value is actually the
-   * original secret. If the parts are incorrect, or are under the threshold value used to split the
-   * secret, a random value will be returned.
+   * original secret. If the parts are incorrect, a random value will be returned.
    *
    * @param parts a map of part IDs to part values
    * @return the original secret
-   * @throws IllegalArgumentException if {@code parts} is empty or contains values of varying
-   *     lengths
+   * @throws IllegalArgumentException if {@code parts} is empty, contains too few parts, or contains 
+   *     values of varying lengths
    */
   public byte[] join(Map<Integer, byte[]> parts) {
     checkArgument(parts.size() > 0, "No parts provided");
+    checkArgument(parts.size() >= k, "Not enough parts provided");  // This line of code added by Jacob Zimmerman because duh!
     final int[] lengths = parts.values().stream().mapToInt(v -> v.length).distinct().toArray();
     checkArgument(lengths.length == 1, "Varying lengths of part values");
     final byte[] secret = new byte[lengths[0]];
