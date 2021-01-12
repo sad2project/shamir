@@ -1,23 +1,8 @@
+# Disclaimer
+
+This is not my original code. The original is at https://github.com/codahale/shamir, so please, if you want to use the code, use the original. This is to help avoid any clashes with the original author's license.
+
 # Shamir's Secret Sharing
-
-[![CircleCI](https://circleci.com/gh/codahale/shamir.svg?style=svg)](https://circleci.com/gh/codahale/shamir)
-
-A Java implementation of [Shamir's Secret Sharing
-algorithm](http://en.wikipedia.org/wiki/Shamir's_Secret_Sharing) over GF(256).
-
-## Add to your project
-
-```xml
-<dependency>
-  <groupId>com.codahale</groupId>
-  <artifactId>shamir</artifactId>
-  <version>0.7.0</version>
-</dependency>
-```
-
-*Note: module name for Java 9+ is `com.codahale.shamir`.*
-
-## Use the thing
 
 ```java
 import com.codahale.shamir.Scheme;
