@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.codahale.shamir;
+package com.shamir;
 
 import static java.lang.Byte.toUnsignedInt;
 
